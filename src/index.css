@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #f8fafc;
+    background-image: url('/bg.svg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #0f172a;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    min-height: 100vh;
+  }
+  
+  /* Custom scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Porcelain Modernist Glass & Card Utilities */
+.card-porcelain {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-porcelain:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Light Mode Glass Pills */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  color: #334155;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-glass:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+.btn-glass:active {
+  transform: scale(0.97);
+  background: #e2e8f0;
+}
+
+.btn-glass-active {
+  background: #D4EBD8 !important;
+  border-color: #b8dfbe !important;
+  color: #14331a !important;
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Primary Action Button (Minimal Light Green #D4EBD8) */
+.btn-emerald {
+  background-color: #D4EBD8;
+  color: #14331a;
+  border: 1px solid #b8dfbe;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-emerald:hover {
+  background-color: #c3e4c8;
+  border-color: #a7d7ae;
+  color: #0b2210;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 235, 216, 0.45);
+}
+
+.btn-emerald:active {
+  transform: scale(0.97);
+  background-color: #b2dcba;
+}

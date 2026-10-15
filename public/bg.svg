@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Base Background: Crisp Cool White to Pale Slate -->
+    <linearGradient id="baseCanvas" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="50%" stop-color="#f1f5f9" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+
+    <!-- Upper Center Angled Facet -->
+    <linearGradient id="facetCenter" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
+      <stop offset="60%" stop-color="#e2e8f0" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#cbd5e1" stop-opacity="0.25" />
+    </linearGradient>
+
+    <!-- Translucent Diagonal Blade from Lower-Left -->
+    <linearGradient id="bladeLeft" x1="10%" y1="100%" x2="90%" y2="0%">
+      <stop offset="0%" stop-color="#cbd5e1" stop-opacity="0.5" />
+      <stop offset="60%" stop-color="#e2e8f0" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Low Base Wedge Gradient -->
+    <linearGradient id="bottomWedge" x1="0%" y1="100%" x2="100%" y2="30%">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#cbd5e1" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#64748b" stop-opacity="0.5" />
+    </linearGradient>
+
+    <!-- Deep Charcoal/Slate Curved Swoop (Bottom-Right) -->
+    <linearGradient id="darkSwoopGrad" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#64748b" stop-opacity="0.9" />
+      <stop offset="35%" stop-color="#475569" stop-opacity="0.95" />
+      <stop offset="85%" stop-color="#334155" stop-opacity="0.98" />
+      <stop offset="100%" stop-color="#1e293b" stop-opacity="1" />
+    </linearGradient>
+
+    <!-- Secondary Dark Overlap Facet -->
+    <linearGradient id="midDarkFacet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.6" />
+      <stop offset="60%" stop-color="#64748b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#475569" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Translucent Overlay Band across bottom right -->
+    <linearGradient id="translucentBar" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#64748b" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#475569" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#334155" stop-opacity="0.6" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. Background Base -->
+  <rect width="1920" height="1080" fill="url(#baseCanvas)" />
+
+  <!-- 2. Soft Ambient Top Left Light -->
+  <ellipse cx="400" cy="300" rx="900" ry="700" fill="#ffffff" fill-opacity="0.75" />
+
+  <!-- 3. Central Vertical Angled Shard -->
+  <polygon points="900,0 1480,0 1020,1080 620,1080" fill="url(#facetCenter)" />
+
+  <!-- 4. Lower-Left Rising Diagonal Shard -->
+  <polygon points="0,920 1250,380 950,220 0,600" fill="url(#bladeLeft)" />
+
+  <!-- 5. Bottom Low-Angle Subtle Horizon Wedge -->
+  <polygon points="0,960 1920,740 1920,1080 0,1080" fill="url(#bottomWedge)" />
+
+  <!-- 6. Outer Slate Gray Curve on Right Edge -->
+  <path d="M 1540,0 L 1920,0 L 1920,1080 L 1520,1080 C 1450,780 1560,400 1780,140 Z" fill="url(#midDarkFacet)" />
+
+  <!-- 7. Graceful Luminous White Swoop Ribbons -->
+  <!-- Back Ribbon -->
+  <path d="M 1440,0 C 1340,320 1200,680 820,1020 L 980,1080 C 1360,740 1520,380 1620,0 Z" fill="#ffffff" fill-opacity="0.8" />
+  
+  <!-- Front Crisp White Wing -->
+  <path d="M 1520,0 C 1400,340 1250,700 880,1040 L 960,1080 C 1320,720 1480,360 1580,0 Z" fill="#f8fafc" fill-opacity="0.9" />
+
+  <!-- 8. Dominant Dark Charcoal / Slate Sweeping Wave (Bottom-Right Signature Shape) -->
+  <path d="M 1920,180 C 1760,320 1480,620 1040,1080 L 1920,1080 Z" fill="url(#darkSwoopGrad)" />
+
+  <!-- 9. Secondary Dark Facet Under the Wave for Depth Layering -->
+  <path d="M 1920,320 C 1800,440 1580,720 1220,1080 L 1920,1080 Z" fill="#1e293b" fill-opacity="0.4" />
+
+  <!-- 10. Angled Translucent Horizontal Band Slicing Over the Wave -->
+  <polygon points="760,860 1920,660 1920,780 880,940" fill="url(#translucentBar)" />
+
+  <!-- 11. Sleek Precision Razor Lines for High-End Architectural Definition -->
+  <path d="M 1440,0 C 1340,320 1200,680 820,1020" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-opacity="0.9" />
+  <path d="M 1920,180 C 1760,320 1480,620 1040,1080" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-opacity="0.4" />
+  <line x1="760" y1="860" x2="1920" y2="660" stroke="#cbd5e1" stroke-width="1" stroke-opacity="0.4" />
+</svg>
