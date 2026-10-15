@@ -375,9 +375,9 @@ export default function App() {
               </div>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-                Senior passed out? <br />
+                Sell unused books <br />
                 <span className="text-emerald-600">
-                  Fixed fair prices. Zero price gouging.
+                  and earn.
                 </span>
               </h1>
               
