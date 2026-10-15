@@ -30,18 +30,18 @@ export default function BookDetailModal({ book, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/40 backdrop-blur-sm animate-fadeIn">
+    <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
       <div 
-        className="relative w-full max-w-lg bg-white border border-slate-200 rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-2xl max-h-[94vh] flex flex-col text-slate-900"
+        className="relative w-full max-w-lg bg-white border border-slate-200 rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-2xl max-h-[92vh] sm:max-h-[90vh] flex flex-col text-slate-900"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-100">
+        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-100 flex-shrink-0 bg-white">
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
               {book.branchName}
             </span>
-            <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">
+            <span className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-slate-100 text-slate-700">
               {book.semester}
             </span>
             {isFree ? (
@@ -164,14 +164,14 @@ export default function BookDetailModal({ book, onClose }) {
         </div>
 
         {/* Modal Footer - Actions */}
-        <div className="p-4 sm:p-5 border-t border-slate-100 bg-slate-50 flex flex-col sm:flex-row items-center gap-2.5">
+        <div className="p-4 sm:p-5 border-t border-slate-200 bg-white flex flex-col sm:flex-row items-center gap-3 flex-shrink-0 shadow-[0_-4px_16px_rgba(0,0,0,0.04)]">
           <button
             onClick={handleCopyPhone}
-            className="btn-glass w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 flex items-center justify-center gap-2"
+            className="btn-glass w-full sm:w-auto px-5 py-3 rounded-xl text-sm font-bold text-slate-700 flex items-center justify-center gap-2 active:scale-95 transition-all"
           >
             {copied ? (
               <>
-                <Check className="w-4 h-4 text-emerald-600" />
+                <Check className="w-4 h-4 text-emerald-600 stroke-[3]" />
                 <span className="text-emerald-700">Phone Copied!</span>
               </>
             ) : (
@@ -184,9 +184,9 @@ export default function BookDetailModal({ book, onClose }) {
 
           <button
             onClick={handleWhatsApp}
-            className="btn-emerald w-full sm:flex-1 py-2.5 px-4 rounded-xl font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm"
+            className="btn-emerald w-full sm:flex-1 py-3 px-6 rounded-xl font-black text-sm sm:text-base flex items-center justify-center gap-2 shadow-md active:scale-95 transition-all"
           >
-            <MessageCircle className="w-4 h-4 fill-current" />
+            <MessageCircle className="w-5 h-5 fill-current" />
             <span>Chat on WhatsApp</span>
           </button>
         </div>

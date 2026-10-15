@@ -32,51 +32,51 @@ export default function BookCard({ book, onInspect }) {
     >
       {/* Top Header: Department & Semester + Discount Tag */}
       <div className="flex items-center justify-between gap-2">
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] font-bold border border-slate-200">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200">
           <span>{book.branchName}</span>
           <span className="text-slate-400">•</span>
-          <span className="text-emerald-700 font-extrabold">{book.semester}</span>
+          <span className="text-emerald-700 font-black">{book.semester}</span>
         </span>
 
         {isFree ? (
-          <span className="px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 font-black text-xs border border-purple-200 flex items-center gap-1 shadow-xs">
-            <Gift className="w-3 h-3 text-purple-600" />
+          <span className="px-3 py-1 rounded-full bg-purple-50 text-purple-700 font-black text-xs border border-purple-200 flex items-center gap-1 shadow-xs">
+            <Gift className="w-3.5 h-3.5 text-purple-600" />
             <span>FREE GIFT</span>
           </span>
         ) : (
-          <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-extrabold text-xs border border-emerald-200">
+          <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 font-black text-xs border border-emerald-200">
             {book.discountPercent}% OFF
           </span>
         )}
       </div>
 
       {/* Book Title & Badges */}
-      <div className="space-y-1.5">
-        <h3 className="font-extrabold text-slate-900 text-base leading-snug group-hover:text-emerald-700 transition-colors line-clamp-2">
+      <div className="space-y-2">
+        <h3 className="font-extrabold text-slate-900 text-base sm:text-lg leading-snug group-hover:text-emerald-700 transition-colors line-clamp-2">
           {book.title}
         </h3>
 
         {/* Condition & Status Tags */}
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="inline-flex items-center text-[11px] px-2 py-0.5 rounded-md font-semibold bg-slate-100 text-slate-700 border border-slate-200">
+          <span className="inline-flex items-center text-xs px-2.5 py-1 rounded-md font-bold bg-slate-100 text-slate-700 border border-slate-200">
             {book.condition}
           </span>
 
           {status === 'reserved' && (
-            <span className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-md font-bold bg-amber-50 text-amber-800 border border-amber-200">
-              <Clock className="w-3 h-3 text-amber-600" />
+            <span className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-md font-bold bg-amber-50 text-amber-800 border border-amber-200">
+              <Clock className="w-3.5 h-3.5 text-amber-600" />
               <span>Deal Pending</span>
             </span>
           )}
 
           {status === 'sold' && (
-            <span className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-md font-bold bg-slate-200 text-slate-700 border border-slate-300">
-              <CheckCircle2 className="w-3 h-3 text-slate-600" />
+            <span className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-md font-bold bg-slate-200 text-slate-700 border border-slate-300">
+              <CheckCircle2 className="w-3.5 h-3.5 text-slate-600" />
               <span>Handed Down</span>
             </span>
           )}
 
-          <span className="text-[11px] text-slate-400 font-medium">• {book.postedTime}</span>
+          <span className="text-xs text-slate-500 font-medium">• {book.postedTime}</span>
         </div>
       </div>
 
@@ -85,33 +85,33 @@ export default function BookCard({ book, onInspect }) {
         <div className="flex items-baseline justify-between">
           <div className="flex items-baseline gap-2">
             {isFree ? (
-              <span className="text-2xl font-black text-purple-900 tracking-tight">FREE (₹0)</span>
+              <span className="text-2xl sm:text-3xl font-black text-purple-900 tracking-tight">FREE (₹0)</span>
             ) : (
               <>
-                <span className="text-2xl font-black text-slate-900 tracking-tight">₹{book.price}</span>
-                <span className="text-xs text-slate-400 line-through font-medium">₹{book.originalPrice}</span>
+                <span className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">₹{book.price}</span>
+                <span className="text-sm text-slate-400 line-through font-semibold">₹{book.originalPrice}</span>
               </>
             )}
           </div>
           
           {isFree ? (
-            <span className="text-xs font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-md border border-purple-200">
+            <span className="text-xs font-black text-purple-700 bg-purple-50 px-2.5 py-1 rounded-md border border-purple-200">
               Save ₹{book.originalPrice || 500}
             </span>
           ) : (
-            <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
+            <span className="text-xs font-black text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100">
               Save ₹{savings}
             </span>
           )}
         </div>
 
-        <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
-          <MapPin className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+        <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-600 font-medium">
+          <MapPin className="w-4 h-4 text-slate-400 flex-shrink-0" />
           <span className="truncate">{book.meetupLocation}</span>
         </div>
 
         {/* Action Buttons: 1 Glass Button + 1 Solid Button */}
-        <div className="grid grid-cols-2 gap-2 pt-1">
+        <div className="grid grid-cols-2 gap-2.5 pt-1">
           <button
             type="button"
             onClick={(e) => {
@@ -119,18 +119,18 @@ export default function BookCard({ book, onInspect }) {
               sound.playClick();
               onInspect(book);
             }}
-            className="btn-glass w-full py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 active:scale-98"
+            className="btn-glass w-full py-3 px-3 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 active:scale-95"
           >
-            <Eye className="w-3.5 h-3.5 text-slate-500" />
+            <Eye className="w-4 h-4 text-slate-600" />
             <span>Details</span>
           </button>
 
           <button
             type="button"
             onClick={handleWhatsApp}
-            className="btn-emerald w-full py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs active:scale-98"
+            className="btn-emerald w-full py-3 px-3 rounded-xl text-xs sm:text-sm font-black flex items-center justify-center gap-2 shadow-xs active:scale-95"
           >
-            <MessageCircle className="w-3.5 h-3.5 fill-current" />
+            <MessageCircle className="w-4 h-4 fill-current" />
             <span>WhatsApp</span>
           </button>
         </div>

@@ -125,130 +125,133 @@ export default function RequestBoard({ requests, onRequestAdded }) {
 
       {/* Post Request Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/40 backdrop-blur-sm animate-fadeIn">
-          <div className="relative w-full max-w-md bg-white border border-slate-200 rounded-t-3xl sm:rounded-3xl p-5 sm:p-6 space-y-4 shadow-2xl text-slate-900 max-h-[94vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-              <h3 className="text-base font-black text-slate-900">Post a Book Request</h3>
+        <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
+          <div className="relative w-full max-w-md bg-white border border-slate-200 rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-2xl text-slate-900 max-h-[92vh] sm:max-h-[90vh] flex flex-col">
+            <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-100 flex-shrink-0 bg-white">
+              <h3 className="text-base sm:text-lg font-black text-slate-900">Post a Book Request</h3>
               <button
                 onClick={() => {
                   sound.playClick();
                   setShowModal(false);
                 }}
-                className="btn-glass p-2 rounded-full text-slate-400 hover:text-slate-700"
+                className="btn-glass p-2.5 rounded-full text-slate-500 hover:text-slate-800"
               >
                 ✕
               </button>
             </div>
 
-            <form onSubmit={handlePostRequest} className="space-y-3 text-xs sm:text-sm">
-              <div>
-                <label className="block text-slate-700 font-bold mb-1">Book / Subject Title *</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Electrodynamics or Operating Systems"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-2">
+            <form onSubmit={handlePostRequest} className="flex flex-col flex-1 overflow-hidden">
+              <div className="overflow-y-auto p-4 sm:p-6 space-y-4 text-sm flex-1">
                 <div>
-                  <label className="block text-slate-700 font-bold mb-1">Branch</label>
-                  <select
-                    value={branchName}
-                    onChange={(e) => {
-                      sound.playClick();
-                      setBranchName(e.target.value);
-                    }}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none"
-                  >
-                    {BRANCHES.filter(b => b.id !== 'all').map(b => (
-                      <option key={b.id} value={b.name}>{b.name}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-slate-700 font-bold mb-1">Semester</label>
-                  <select
-                    value={semester}
-                    onChange={(e) => {
-                      sound.playClick();
-                      setSemester(e.target.value);
-                    }}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none"
-                  >
-                    {['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6', 'Sem 7', 'Sem 8'].map(s => (
-                      <option key={s} value={s}>{s}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2">
-                <div>
-                  <label className="block text-slate-700 font-bold mb-1">Max Budget (₹)</label>
-                  <input
-                    type="number"
-                    placeholder="e.g. 250"
-                    value={maxBudget}
-                    onChange={(e) => setMaxBudget(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-slate-700 font-bold mb-1">Your Name *</label>
+                  <label className="block text-sm text-slate-800 font-bold mb-1.5">Book / Subject Title *</label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Tushar K."
-                    value={studentName}
-                    onChange={(e) => setStudentName(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none"
+                    placeholder="e.g. Electrodynamics or Operating Systems"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 text-sm font-semibold"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-sm text-slate-800 font-bold mb-1.5">Branch</label>
+                    <select
+                      value={branchName}
+                      onChange={(e) => {
+                        sound.playClick();
+                        setBranchName(e.target.value);
+                      }}
+                      className="w-full px-3.5 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none text-sm font-semibold"
+                    >
+                      {BRANCHES.filter(b => b.id !== 'all').map(b => (
+                        <option key={b.id} value={b.name}>{b.name}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm text-slate-800 font-bold mb-1.5">Semester</label>
+                    <select
+                      value={semester}
+                      onChange={(e) => {
+                        sound.playClick();
+                        setSemester(e.target.value);
+                      }}
+                      className="w-full px-3.5 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none text-sm font-semibold"
+                    >
+                      {['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6', 'Sem 7', 'Sem 8'].map(s => (
+                        <option key={s} value={s}>{s}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-sm text-slate-800 font-bold mb-1.5">Max Budget (₹)</label>
+                    <input
+                      type="number"
+                      placeholder="e.g. 250"
+                      value={maxBudget}
+                      onChange={(e) => setMaxBudget(e.target.value)}
+                      className="w-full px-3.5 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none text-sm font-semibold"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm text-slate-800 font-bold mb-1.5">Your Name *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Tushar K."
+                      value={studentName}
+                      onChange={(e) => setStudentName(e.target.value)}
+                      className="w-full px-3.5 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none text-sm font-semibold"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm text-slate-800 font-bold mb-1.5">WhatsApp Phone Number *</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. 919876543210"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none text-sm font-semibold"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm text-slate-800 font-bold mb-1.5">Additional Notes</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Needed urgently before Monday midterm"
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none text-sm font-medium"
                   />
                 </div>
               </div>
 
-              <div>
-                <label className="block text-slate-700 font-bold mb-1">WhatsApp Phone Number *</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. 919876543210"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-slate-700 font-bold mb-1">Additional Notes</label>
-                <input
-                  type="text"
-                  placeholder="e.g. Needed urgently before Monday midterm"
-                  value={notes}
-                  onChange={(e) => setNotes(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none"
-                />
-              </div>
-
-              <div className="pt-2 flex items-center justify-end gap-2">
+              {/* Sticky footer action */}
+              <div className="p-4 sm:p-5 border-t border-slate-200 bg-white flex items-center justify-between gap-3 flex-shrink-0 shadow-[0_-4px_16px_rgba(0,0,0,0.04)]">
                 <button
                   type="button"
                   onClick={() => {
                     sound.playClick();
                     setShowModal(false);
                   }}
-                  className="btn-glass px-3.5 py-2 rounded-xl text-slate-600 hover:text-slate-900"
+                  className="btn-glass px-4 py-3 rounded-xl text-slate-700 hover:text-slate-900 text-sm font-bold active:scale-95 transition-all"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="btn-emerald px-4 py-2 rounded-xl font-bold text-xs"
+                  className="btn-emerald flex-1 py-3 px-6 rounded-xl font-black text-sm sm:text-base flex items-center justify-center gap-2 shadow-md active:scale-95 transition-all"
                 >
                   Post Request
                 </button>

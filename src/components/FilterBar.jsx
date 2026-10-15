@@ -20,11 +20,11 @@ export default function FilterBar({
   });
 
   return (
-    <div className="py-2.5 space-y-2.5">
+    <div className="py-2.5 space-y-3">
       
       {/* 1. Academic Faculty Tabs */}
-      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 text-xs -mx-4 px-4 sm:mx-0 sm:px-0">
-        <span className="font-bold uppercase tracking-wider text-slate-400 whitespace-nowrap pr-1 text-[10px] hidden sm:inline">
+      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-sm -mx-4 px-4 sm:mx-0 sm:px-0">
+        <span className="font-extrabold uppercase tracking-wider text-slate-400 whitespace-nowrap pr-1 text-xs hidden sm:inline">
           Faculty:
         </span>
         <button
@@ -33,7 +33,7 @@ export default function FilterBar({
             setSelectedDept('ALL');
             setSelectedBranch('all');
           }}
-          className={`btn-glass px-3.5 py-1.5 rounded-xl font-semibold whitespace-nowrap transition-all ${
+          className={`btn-glass px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
             selectedDept === 'ALL' ? 'btn-glass-active' : ''
           }`}
         >
@@ -45,7 +45,7 @@ export default function FilterBar({
             setSelectedDept('BSC');
             setSelectedBranch('all');
           }}
-          className={`btn-glass px-3.5 py-1.5 rounded-xl font-semibold whitespace-nowrap transition-all ${
+          className={`btn-glass px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
             selectedDept === 'BSC' ? 'btn-glass-active' : ''
           }`}
         >
@@ -57,7 +57,7 @@ export default function FilterBar({
             setSelectedDept('BCOM');
             setSelectedBranch('all');
           }}
-          className={`btn-glass px-3.5 py-1.5 rounded-xl font-semibold whitespace-nowrap transition-all ${
+          className={`btn-glass px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
             selectedDept === 'BCOM' ? 'btn-glass-active' : ''
           }`}
         >
@@ -66,8 +66,8 @@ export default function FilterBar({
       </div>
 
       {/* 2. Specific Discipline / Subject */}
-      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 text-xs -mx-4 px-4 sm:mx-0 sm:px-0">
-        <span className="font-bold uppercase tracking-wider text-slate-400 whitespace-nowrap pr-1 text-[10px] hidden sm:inline">
+      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-sm -mx-4 px-4 sm:mx-0 sm:px-0">
+        <span className="font-extrabold uppercase tracking-wider text-slate-400 whitespace-nowrap pr-1 text-xs hidden sm:inline">
           Subject:
         </span>
         {visibleBranches.map((b) => {
@@ -79,7 +79,7 @@ export default function FilterBar({
                 sound.playClick();
                 setSelectedBranch(b.id);
               }}
-              className={`btn-glass px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+              className={`btn-glass px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
                 isActive ? 'btn-glass-active' : ''
               }`}
             >
@@ -90,8 +90,8 @@ export default function FilterBar({
       </div>
 
       {/* 3. Semester (Sem 1 to Sem 8) & Condition Filters */}
-      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 text-xs -mx-4 px-4 sm:mx-0 sm:px-0">
-        <span className="font-bold uppercase tracking-wider text-slate-400 whitespace-nowrap pr-1 text-[10px] hidden sm:inline">
+      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-sm -mx-4 px-4 sm:mx-0 sm:px-0">
+        <span className="font-extrabold uppercase tracking-wider text-slate-400 whitespace-nowrap pr-1 text-xs hidden sm:inline">
           Semester:
         </span>
         {SEMESTERS.map((sem) => {
@@ -103,7 +103,7 @@ export default function FilterBar({
                 sound.playClick();
                 setSelectedSem(sem);
               }}
-              className={`btn-glass px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+              className={`btn-glass px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
                 isActive ? 'btn-glass-active' : ''
               }`}
             >
@@ -113,7 +113,7 @@ export default function FilterBar({
         })}
 
         {/* Condition Filter */}
-        <div className="h-4 w-[1px] bg-slate-200 mx-1 flex-shrink-0" />
+        <div className="h-5 w-[1px] bg-slate-300 mx-1 flex-shrink-0" />
         
         {BOOK_CONDITIONS.map((cond) => {
           const isSelected = conditionFilter === cond.name;
@@ -124,11 +124,11 @@ export default function FilterBar({
                 sound.playClick();
                 setConditionFilter(isSelected ? null : cond.name);
               }}
-              className={`btn-glass px-2.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
-                isSelected ? 'btn-glass-active' : 'text-slate-600'
+              className={`btn-glass px-3 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
+                isSelected ? 'btn-glass-active' : 'text-slate-700'
               }`}
             >
-              {isSelected && <Check className="w-3 h-3 inline mr-1 text-emerald-600" />}
+              {isSelected && <Check className="w-3.5 h-3.5 inline mr-1 text-emerald-700 stroke-[3]" />}
               {cond.name} ({cond.discountPercent}% OFF)
             </button>
           );

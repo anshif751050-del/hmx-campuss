@@ -381,13 +381,13 @@ export default function App() {
                 </span>
               </h1>
               
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-medium">
                 Selling prices are automatically locked based on book condition: <strong>Like New (25% OFF)</strong>, <strong>Good & Average (30% OFF)</strong>, <strong>Usable (35% OFF)</strong>, and <strong>Bad (40% OFF)</strong>.
               </p>
 
               {/* Logged in Welcome Pill */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-xs text-slate-700 font-medium">
-                <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 border border-slate-200 text-xs sm:text-sm text-slate-800 font-semibold">
+                <UserCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                 <span>Logged in as <strong>{currentUser.name}</strong> ({currentUser.branchName} • {currentUser.semester})</span>
               </div>
             </div>
