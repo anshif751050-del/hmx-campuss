@@ -119,7 +119,7 @@ export default function BookCard({ book, onInspect }) {
               sound.playClick();
               onInspect(book);
             }}
-            className="btn-glass w-full py-2 px-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5"
+            className="btn-glass w-full py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 active:scale-98"
           >
             <Eye className="w-3.5 h-3.5 text-slate-500" />
             <span>Details</span>
@@ -128,7 +128,7 @@ export default function BookCard({ book, onInspect }) {
           <button
             type="button"
             onClick={handleWhatsApp}
-            className="btn-emerald w-full py-2 px-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm"
+            className="btn-emerald w-full py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs active:scale-98"
           >
             <MessageCircle className="w-3.5 h-3.5 fill-current" />
             <span>WhatsApp</span>

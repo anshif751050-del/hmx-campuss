@@ -90,8 +90,8 @@ export default function Navbar({
               {!muted ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
             </button>
 
-            {/* Tab switchers */}
-            <div className="flex items-center p-1 rounded-xl bg-slate-100 border border-slate-200/80">
+            {/* Desktop Tab switchers (Hidden on Mobile) */}
+            <div className="hidden md:flex items-center p-1 rounded-xl bg-slate-100 border border-slate-200/80">
               <button
                 onClick={() => {
                   sound.playClick();
@@ -142,8 +142,8 @@ export default function Navbar({
 
             {/* User Profile */}
             {currentUser && (
-              <div className="flex items-center gap-2">
-                <div className="btn-glass px-2.5 sm:px-3 py-1.5 rounded-xl flex items-center gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <div className="btn-glass px-2 sm:px-3 py-1.5 rounded-xl flex items-center gap-2">
                   <div className="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs">
                     {currentUser.name.charAt(0).toUpperCase()}
                   </div>
@@ -166,17 +166,16 @@ export default function Navbar({
               </div>
             )}
 
-            {/* Sell Button */}
+            {/* Desktop Sell Button (Hidden on Mobile, handled by BottomNav) */}
             <button
               onClick={() => {
                 sound.playClick();
                 onOpenSellModal();
               }}
-              className="btn-emerald flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl font-bold text-xs sm:text-sm shadow-sm"
+              className="hidden md:flex btn-emerald items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl font-bold text-xs sm:text-sm shadow-sm"
             >
               <Plus className="w-4 h-4 stroke-[2.5]" />
-              <span className="hidden xs:inline">List a Book</span>
-              <span className="xs:hidden">Sell</span>
+              <span>List a Book</span>
             </button>
           </div>
 

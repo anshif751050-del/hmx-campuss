@@ -166,7 +166,7 @@ export default function MyListingsDashboard({
       </div>
 
       {/* 3. Filter Navigation Tabs */}
-      <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
+      <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
         {[
           { id: 'all', label: `All Listings (${myBooks.length})` },
           { id: 'available', label: `Active (${stats.active})` },

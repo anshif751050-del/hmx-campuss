@@ -20,11 +20,11 @@ export default function FilterBar({
   });
 
   return (
-    <div className="py-3 space-y-3">
+    <div className="py-2.5 space-y-2.5">
       
       {/* 1. Academic Faculty Tabs */}
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-xs">
-        <span className="font-bold uppercase tracking-wider text-slate-400 whitespace-nowrap pl-1 pr-1 text-[11px]">
+      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 text-xs -mx-4 px-4 sm:mx-0 sm:px-0">
+        <span className="font-bold uppercase tracking-wider text-slate-400 whitespace-nowrap pr-1 text-[10px] hidden sm:inline">
           Faculty:
         </span>
         <button
@@ -66,8 +66,8 @@ export default function FilterBar({
       </div>
 
       {/* 2. Specific Discipline / Subject */}
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-sm">
-        <span className="font-bold uppercase tracking-wider text-slate-400 whitespace-nowrap pl-1 pr-1 text-[11px]">
+      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 text-xs -mx-4 px-4 sm:mx-0 sm:px-0">
+        <span className="font-bold uppercase tracking-wider text-slate-400 whitespace-nowrap pr-1 text-[10px] hidden sm:inline">
           Subject:
         </span>
         {visibleBranches.map((b) => {
@@ -79,7 +79,7 @@ export default function FilterBar({
                 sound.playClick();
                 setSelectedBranch(b.id);
               }}
-              className={`btn-glass px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
+              className={`btn-glass px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                 isActive ? 'btn-glass-active' : ''
               }`}
             >
@@ -90,8 +90,8 @@ export default function FilterBar({
       </div>
 
       {/* 3. Semester (Sem 1 to Sem 8) & Condition Filters */}
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-sm">
-        <span className="font-bold uppercase tracking-wider text-slate-400 whitespace-nowrap pl-1 pr-1 text-[11px]">
+      <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 text-xs -mx-4 px-4 sm:mx-0 sm:px-0">
+        <span className="font-bold uppercase tracking-wider text-slate-400 whitespace-nowrap pr-1 text-[10px] hidden sm:inline">
           Semester:
         </span>
         {SEMESTERS.map((sem) => {

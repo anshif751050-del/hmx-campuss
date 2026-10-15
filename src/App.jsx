@@ -9,6 +9,7 @@ import MyListingsDashboard from './components/MyListingsDashboard';
 import LoginPage from './components/LoginPage';
 import { INITIAL_BOOKS, INITIAL_REQUESTS, BRANCHES, BOOK_CONDITIONS } from './data/initialData';
 import { Sparkles, ArrowRight, BookOpen, RefreshCw, ShieldCheck, Lock, UserCheck, TrendingUp } from 'lucide-react';
+import BottomNav from './components/BottomNav';
 import { sound } from './utils/sound';
 import { supabase } from './utils/supabase';
 
@@ -362,7 +363,7 @@ export default function App() {
         onLogout={handleLogout}
       />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-24 md:pb-6 flex-1 w-full">
         
         {/* 2. Hero Section with Fair-Pricing Highlights (Explore Tab only) */}
         {activeTab === 'explore' && (
@@ -544,8 +545,17 @@ export default function App() {
         />
       )}
 
-      {/* 5. Clean Footer */}
-      <footer className="mt-16 border-t border-slate-200/80 py-8 text-center text-xs text-slate-500">
+      {/* 5. Mobile App Bottom Navigation (Visible on mobile screens) */}
+      <BottomNav
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        onOpenSellModal={() => setIsSellModalOpen(true)}
+        totalBooksCount={books.length}
+        myBooksCount={myBooksCount}
+      />
+
+      {/* 6. Clean Footer */}
+      <footer className="mt-16 border-t border-slate-200/80 py-8 text-center text-xs text-slate-500 mb-16 md:mb-0">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="font-extrabold text-slate-900">HMX</span>
