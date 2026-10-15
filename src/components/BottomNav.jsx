@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Bookmark, Package, Plus, Volume2, VolumeX } from 'lucide-react';
+import { BookOpen, Bookmark, Package, Plus, Moon, Sun } from 'lucide-react';
 import { sound } from '../utils/sound';
 
 export default function BottomNav({ 
@@ -7,12 +7,14 @@ export default function BottomNav({
   setActiveTab, 
   onOpenSellModal, 
   totalBooksCount, 
-  myBooksCount 
+  myBooksCount,
+  darkMode,
+  toggleDarkMode
 }) {
   return (
     <nav 
       aria-label="Mobile Navigation"
-      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-slate-200/90 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] pb-safe"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#0d1610]/95 backdrop-blur-xl border-t border-slate-200/90 dark:border-emerald-950/80 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_-4px_25px_rgba(0,0,0,0.4)] pb-safe transition-colors"
     >
       <div className="max-w-md mx-auto px-4 h-16 flex items-center justify-around">
         
@@ -24,20 +26,20 @@ export default function BottomNav({
             setActiveTab('explore');
           }}
           className={`relative flex flex-col items-center justify-center flex-1 py-1 transition-all ${
-            activeTab === 'explore' ? 'text-slate-900 font-extrabold' : 'text-slate-400 font-medium'
+            activeTab === 'explore' ? 'text-slate-900 dark:text-emerald-300 font-extrabold' : 'text-slate-400 dark:text-slate-500 font-medium'
           }`}
         >
           <div className="relative">
-            <BookOpen className={`w-5 h-5 transition-transform ${activeTab === 'explore' ? 'scale-110 text-emerald-800' : ''}`} />
+            <BookOpen className={`w-5 h-5 transition-transform ${activeTab === 'explore' ? 'scale-110 text-emerald-800 dark:text-emerald-300' : ''}`} />
             {totalBooksCount > 0 && (
-              <span className="absolute -top-1 -right-2 px-1 py-0.2 rounded-full text-[9px] font-black bg-[#D4EBD8] text-[#14331a] border border-[#b8dfbe]">
+              <span className="absolute -top-1 -right-2 px-1 py-0.2 rounded-full text-[9px] font-black bg-[#D4EBD8] dark:bg-emerald-900 text-[#14331a] dark:text-emerald-200 border border-[#b8dfbe] dark:border-emerald-700">
                 {totalBooksCount}
               </span>
             )}
           </div>
           <span className="text-[10px] tracking-tight mt-1">Books</span>
           {activeTab === 'explore' && (
-            <span className="w-4 h-1 bg-[#14331a] rounded-full mt-0.5" />
+            <span className="w-4 h-1 bg-[#14331a] dark:bg-emerald-400 rounded-full mt-0.5" />
           )}
         </button>
 
@@ -49,13 +51,13 @@ export default function BottomNav({
             setActiveTab('requests');
           }}
           className={`relative flex flex-col items-center justify-center flex-1 py-1 transition-all ${
-            activeTab === 'requests' ? 'text-slate-900 font-extrabold' : 'text-slate-400 font-medium'
+            activeTab === 'requests' ? 'text-slate-900 dark:text-emerald-300 font-extrabold' : 'text-slate-400 dark:text-slate-500 font-medium'
           }`}
         >
-          <Bookmark className={`w-5 h-5 transition-transform ${activeTab === 'requests' ? 'scale-110 text-emerald-800' : ''}`} />
+          <Bookmark className={`w-5 h-5 transition-transform ${activeTab === 'requests' ? 'scale-110 text-emerald-800 dark:text-emerald-300' : ''}`} />
           <span className="text-[10px] tracking-tight mt-1">Wishlist</span>
           {activeTab === 'requests' && (
-            <span className="w-4 h-1 bg-[#14331a] rounded-full mt-0.5" />
+            <span className="w-4 h-1 bg-[#14331a] dark:bg-emerald-400 rounded-full mt-0.5" />
           )}
         </button>
 
@@ -67,7 +69,7 @@ export default function BottomNav({
               sound.playClick();
               onOpenSellModal();
             }}
-            className="w-13 h-13 rounded-2xl bg-[#D4EBD8] border-2 border-white text-[#14331a] shadow-lg shadow-emerald-950/15 flex flex-col items-center justify-center active:scale-95 transition-all"
+            className="w-13 h-13 rounded-2xl bg-[#D4EBD8] dark:bg-[#1f4728] border-2 border-white dark:border-[#0d1610] text-[#14331a] dark:text-emerald-200 shadow-lg shadow-emerald-950/15 dark:shadow-emerald-900/30 flex flex-col items-center justify-center active:scale-95 transition-all"
             title="List a Book"
           >
             <Plus className="w-6 h-6 stroke-[3]" />
@@ -82,21 +84,32 @@ export default function BottomNav({
             setActiveTab('my-listings');
           }}
           className={`relative flex flex-col items-center justify-center flex-1 py-1 transition-all ${
-            activeTab === 'my-listings' ? 'text-slate-900 font-extrabold' : 'text-slate-400 font-medium'
+            activeTab === 'my-listings' ? 'text-slate-900 dark:text-emerald-300 font-extrabold' : 'text-slate-400 dark:text-slate-500 font-medium'
           }`}
         >
           <div className="relative">
-            <Package className={`w-5 h-5 transition-transform ${activeTab === 'my-listings' ? 'scale-110 text-emerald-800' : ''}`} />
+            <Package className={`w-5 h-5 transition-transform ${activeTab === 'my-listings' ? 'scale-110 text-emerald-800 dark:text-emerald-300' : ''}`} />
             {myBooksCount > 0 && (
-              <span className="absolute -top-1 -right-2 px-1 py-0.2 rounded-full text-[9px] font-black bg-[#D4EBD8] text-[#14331a] border border-[#b8dfbe]">
+              <span className="absolute -top-1 -right-2 px-1 py-0.2 rounded-full text-[9px] font-black bg-[#D4EBD8] dark:bg-emerald-900 text-[#14331a] dark:text-emerald-200 border border-[#b8dfbe] dark:border-emerald-700">
                 {myBooksCount}
               </span>
             )}
           </div>
           <span className="text-[10px] tracking-tight mt-1">My Books</span>
           {activeTab === 'my-listings' && (
-            <span className="w-4 h-1 bg-[#14331a] rounded-full mt-0.5" />
+            <span className="w-4 h-1 bg-[#14331a] dark:bg-emerald-400 rounded-full mt-0.5" />
           )}
+        </button>
+
+        {/* 5. Quick Theme Toggle */}
+        <button
+          type="button"
+          onClick={toggleDarkMode}
+          className="relative flex flex-col items-center justify-center flex-1 py-1 text-slate-400 dark:text-amber-400 font-medium transition-all"
+          title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+        >
+          {darkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5" />}
+          <span className="text-[10px] tracking-tight mt-1">{darkMode ? 'Light' : 'Dark'}</span>
         </button>
 
       </div>
