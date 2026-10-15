@@ -82,20 +82,20 @@ export default function Navbar({
             {/* Dark Mode Toggle Button */}
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-xl border transition-all bg-slate-50 dark:bg-[#16231a] border-slate-200 dark:border-[#203a27] text-slate-600 dark:text-amber-400 hover:bg-slate-100 dark:hover:bg-[#1c3022]"
+              className="p-2 rounded-xl border transition-all bg-white dark:bg-white border-slate-200 text-slate-700 dark:text-slate-800 hover:bg-slate-50 shadow-xs"
               title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               aria-label="Toggle Dark Mode"
             >
-              {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              {darkMode ? <Sun className="w-4 h-4 text-amber-500" /> : <Moon className="w-4 h-4 text-slate-700" />}
             </button>
 
             {/* Audio Feedback Toggle */}
             <button
               onClick={handleToggleSound}
-              className={`p-2 rounded-xl border transition-all ${
+              className={`p-2 rounded-xl border transition-all shadow-xs ${
                 !muted
-                  ? 'bg-[#D4EBD8] dark:bg-[#1a3821] border-[#b8dfbe] dark:border-[#275932] text-slate-900 dark:text-emerald-200 hover:bg-[#c3e4c8] dark:hover:bg-[#204428]'
-                  : 'bg-slate-50 dark:bg-[#121c15] border-slate-200 dark:border-[#1e3323] text-slate-400 hover:text-slate-600 dark:hover:text-slate-300'
+                  ? 'bg-[#D4EBD8] border-[#b8dfbe] text-slate-900 hover:bg-[#c3e4c8]'
+                  : 'bg-white border-slate-200 text-slate-400 hover:text-slate-600'
               }`}
               title={muted ? 'Unmute Click Sounds' : 'Mute Click Sounds'}
             >
@@ -103,7 +103,7 @@ export default function Navbar({
             </button>
 
             {/* Desktop Tab switchers (Hidden on Mobile) */}
-            <div className="hidden md:flex items-center p-1 rounded-xl bg-slate-100 dark:bg-[#121c15] border border-slate-200/80 dark:border-[#1e3323]">
+            <div className="hidden md:flex items-center p-1 rounded-xl bg-slate-100 dark:bg-slate-200/90 border border-slate-200/80 shadow-xs">
               <button
                 onClick={() => {
                   sound.playClick();
@@ -111,8 +111,8 @@ export default function Navbar({
                 }}
                 className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                   activeTab === 'explore'
-                    ? 'bg-white dark:bg-[#1b2c1f] text-slate-900 dark:text-emerald-200 shadow-sm'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+                    ? 'bg-white text-slate-900 shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Books ({totalBooksCount})
@@ -125,8 +125,8 @@ export default function Navbar({
                 }}
                 className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                   activeTab === 'requests'
-                    ? 'bg-white dark:bg-[#1b2c1f] text-emerald-800 dark:text-emerald-300 shadow-sm'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+                    ? 'bg-white text-emerald-800 shadow-sm font-bold'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Wishlist
@@ -139,13 +139,13 @@ export default function Navbar({
                 }}
                 className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${
                   activeTab === 'my-listings'
-                    ? 'bg-white dark:bg-[#1b2c1f] text-slate-900 dark:text-emerald-200 shadow-sm font-bold'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+                    ? 'bg-white text-slate-900 shadow-sm font-bold'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 <span>My Books</span>
                 {myBooksCount > 0 && (
-                  <span className="px-1.5 py-0.2 rounded-full text-[10px] font-black bg-[#D4EBD8] dark:bg-emerald-900/80 text-[#14331a] dark:text-emerald-200 border border-[#b8dfbe] dark:border-emerald-700">
+                  <span className="px-1.5 py-0.2 rounded-full text-[10px] font-black bg-[#D4EBD8] text-[#14331a] border border-[#b8dfbe]">
                     {myBooksCount}
                   </span>
                 )}
