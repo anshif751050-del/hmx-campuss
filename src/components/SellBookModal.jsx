@@ -20,8 +20,6 @@ export default function SellBookModal({ onClose, onBookAdded, currentUser, onOpe
   const [selectedConditionId, setSelectedConditionId] = useState(1);
   const [conditionNotes, setConditionNotes] = useState('');
   
-  const [meetupLocation, setMeetupLocation] = useState('Central Library or Canteen');
-  const [meetupTime, setMeetupTime] = useState('After classes (around 3:30 PM)');
   const [sellerName] = useState(currentUser?.name || '');
   const [sellerPhone] = useState(currentUser?.phone || '');
 
@@ -73,8 +71,8 @@ export default function SellBookModal({ onClose, onBookAdded, currentUser, onOpe
       sellerName: sellerName || currentUser.name,
       sellerYear: `${semester} B.Sc.`,
       sellerPhone: (sellerPhone || currentUser.phone).replace(/\D/g, ''),
-      meetupLocation,
-      meetupTime,
+      meetupLocation: '',
+      meetupTime: '',
       postedTime: 'Just now',
       views: 1
     };
@@ -423,36 +421,6 @@ export default function SellBookModal({ onClose, onBookAdded, currentUser, onOpe
                   </div>
                 </div>
 
-                {/* 7. Campus Hand-off */}
-                <div className="pt-2 space-y-3 pb-4">
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-slate-500">
-                    Campus Hand-off Spot
-                  </span>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                    <div>
-                      <label className="block text-sm text-slate-800 font-bold mb-1.5">Campus Landmark</label>
-                      <input
-                        type="text"
-                        placeholder="e.g. Central Library, Science Canteen"
-                        value={meetupLocation}
-                        onChange={(e) => setMeetupLocation(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none text-sm font-medium"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm text-slate-800 font-bold mb-1.5">Best Timing</label>
-                      <input
-                        type="text"
-                        placeholder="e.g. Lunch break or after 3:30 PM"
-                        value={meetupTime}
-                        onChange={(e) => setMeetupTime(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 focus:outline-none text-sm font-medium"
-                      />
-                    </div>
-                  </div>
-                </div>
               </>
             )}
 

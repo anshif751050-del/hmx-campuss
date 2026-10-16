@@ -21,10 +21,10 @@ export default function BookDetailModal({ book, onClose }) {
     sound.playClick();
     const message = isFree
       ? encodeURIComponent(
-          `Hi ${book.sellerName}! I saw your free textbook donation "${book.title}" on HMX. I'm a junior in ${book.semester} and would love to pick it up near ${book.meetupLocation}. Are you available?`
+          `Hi ${book.sellerName}! I saw your free textbook donation "${book.title}" on HMX. I'm a junior in ${book.semester} and would love to take it. Are you available on campus?`
         )
       : encodeURIComponent(
-          `Hi ${book.sellerName}! I saw your book "${book.title}" on HMX for ₹${book.price}. Is it still available to pick up near ${book.meetupLocation}?`
+          `Hi ${book.sellerName}! I saw your book "${book.title}" on HMX for ₹${book.price}. Is it still available to buy on campus?`
         );
     window.open(`https://wa.me/${book.sellerPhone}?text=${message}`, '_blank');
   };
@@ -118,39 +118,25 @@ export default function BookDetailModal({ book, onClose }) {
             </div>
           </div>
 
-          {/* Senior / Seller & Pickup Details */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-            
-            {/* Seller Card */}
-            <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/60 space-y-1.5">
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center text-slate-700">
-                  <User className="w-3.5 h-3.5" />
+          {/* Senior / Seller Details */}
+          <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/60 space-y-1.5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-800 font-bold">
+                  <User className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-slate-900">{book.sellerName}</h4>
-                  <p className="text-[10px] text-slate-500 font-medium">{book.sellerYear}</p>
+                  <h4 className="text-xs sm:text-sm font-extrabold text-slate-900">{book.sellerName}</h4>
+                  <p className="text-[11px] text-slate-500 font-medium">{book.sellerYear}</p>
                 </div>
               </div>
-              <div className="text-[11px] text-slate-500 flex items-center gap-1.5 pt-1 font-medium">
-                <Clock className="w-3 h-3 text-slate-400" />
-                <span>{book.meetupTime}</span>
-              </div>
-            </div>
-
-            {/* Meetup Location */}
-            <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/60 space-y-1">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                <MapPin className="w-3 h-3 text-emerald-600" /> Campus Meeting Point
+              <span className="text-xs text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200 font-bold">
+                Direct Contact
               </span>
-              <p className="text-xs text-slate-800 font-bold pt-0.5">
-                {book.meetupLocation}
-              </p>
-              <p className="text-[10px] text-slate-500 font-medium">
-                Direct in-person campus hand-off.
-              </p>
             </div>
-
+            <p className="text-[11px] text-slate-500 pt-1">
+              Connect directly on WhatsApp to coordinate hand-off on campus.
+            </p>
           </div>
 
           {/* Campus Safety Banner */}

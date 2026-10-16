@@ -12,10 +12,10 @@ export default function BookCard({ book, onInspect }) {
     sound.playClick();
     const message = isFree
       ? encodeURIComponent(
-          `Hi ${book.sellerName}! I saw your free donated book "${book.title}" on HMX. I'm a junior in ${book.semester} and would love to pick it up near ${book.meetupLocation}. Are you available?`
+          `Hi ${book.sellerName}! I saw your free donated book "${book.title}" on HMX. I'm a junior in ${book.semester} and would love to take it. Are you available on campus?`
         )
       : encodeURIComponent(
-          `Hi ${book.sellerName}! I saw your book "${book.title}" on HMX for ₹${book.price}. Is it still available to pick up near ${book.meetupLocation}?`
+          `Hi ${book.sellerName}! I saw your book "${book.title}" on HMX for ₹${book.price}. Is it still available to buy on campus?`
         );
     window.open(`https://wa.me/${book.sellerPhone}?text=${message}`, '_blank');
   };
@@ -105,10 +105,17 @@ export default function BookCard({ book, onInspect }) {
           )}
         </div>
 
-        <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-600 font-medium">
-          <MapPin className="w-4 h-4 text-slate-400 flex-shrink-0" />
-          <span className="truncate">{book.meetupLocation}</span>
-        </div>
+        {book.meetupLocation ? (
+          <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-600 font-medium">
+            <MapPin className="w-4 h-4 text-slate-400 flex-shrink-0" />
+            <span className="truncate">{book.meetupLocation}</span>
+          </div>
+        ) : (
+          <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-500 font-medium">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+            <span>Direct Campus Hand-off via WhatsApp</span>
+          </div>
+        )}
 
         {/* Action Buttons: 1 Glass Button + 1 Solid Button */}
         <div className="grid grid-cols-2 gap-2.5 pt-1">
