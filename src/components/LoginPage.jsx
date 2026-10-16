@@ -12,7 +12,7 @@ export default function LoginPage({ onLoginSuccess }) {
   const [name, setName] = useState('');
   const [semester, setSemester] = useState('Sem 3');
   const [mainDept, setMainDept] = useState('BSC');
-  const [subBranchId, setSubBranchId] = useState('it');
+  const [subBranchId, setSubBranchId] = useState('bsc');
   const [regPhone, setRegPhone] = useState('');
   const [regPin, setRegPin] = useState('');
   
@@ -397,27 +397,6 @@ export default function LoginPage({ onLoginSuccess }) {
                     <span>B.Com. (Commerce)</span>
                   </button>
                 </div>
-              </div>
-
-              {/* Sub-Branch */}
-              <div>
-                <label className="block text-slate-700 font-semibold mb-1">
-                  {mainDept === 'BSC' ? 'Select B.Sc. Subject *' : 'Select B.Com. Specialization *'}
-                </label>
-                <select
-                  value={subBranchId}
-                  onChange={(e) => {
-                    sound.playClick();
-                    setSubBranchId(e.target.value);
-                  }}
-                  className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:border-emerald-500"
-                >
-                  {currentSubBranches.map((sub) => (
-                    <option key={sub.id} value={sub.id} className="bg-white text-slate-900">
-                      {sub.fullName}
-                    </option>
-                  ))}
-                </select>
               </div>
 
               {/* Mobile Number & Security PIN */}

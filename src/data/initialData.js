@@ -1,52 +1,47 @@
 export const DEPARTMENTS = {
   BSC: {
     id: 'BSC',
-    name: 'B.Sc. (Bachelor of Science)',
+    name: 'B.Sc. (Science)',
     subBranches: [
-      { id: 'it', name: 'B.Sc. IT', fullName: 'B.Sc. Information Technology' },
-      { id: 'chemistry', name: 'B.Sc. Chemistry', fullName: 'B.Sc. Chemistry' },
-      { id: 'physics', name: 'B.Sc. Physics', fullName: 'B.Sc. Physics' },
-      { id: 'maths', name: 'B.Sc. Mathematics', fullName: 'B.Sc. Mathematics' },
-      { id: 'geography', name: 'B.Sc. Geography', fullName: 'B.Sc. Geography' },
-      { id: 'psychology', name: 'B.Sc. Psychology', fullName: 'B.Sc. Psychology' },
+      { id: 'bsc', name: 'B.Sc.', fullName: 'B.Sc. (Science)' }
     ]
   },
   BCOM: {
     id: 'BCOM',
-    name: 'B.Com. (Bachelor of Commerce)',
+    name: 'B.Com. (Commerce)',
     subBranches: [
-      { id: 'bcom-finance', name: 'B.Com. Finance', fullName: 'B.Com. Finance' },
-      { id: 'bcom-professional', name: 'B.Com. Professional', fullName: 'B.Com. Professional' }
+      { id: 'bcom', name: 'B.Com.', fullName: 'B.Com. (Commerce)' }
     ]
   }
 };
 
 export const BRANCHES = [
-  { id: 'all', name: 'All Branches', dept: 'ALL' },
-  // B.Sc. branches
-  { id: 'it', name: 'B.Sc. IT', fullName: 'B.Sc. Information Technology', dept: 'BSC' },
-  { id: 'chemistry', name: 'B.Sc. Chemistry', fullName: 'B.Sc. Chemistry', dept: 'BSC' },
-  { id: 'physics', name: 'B.Sc. Physics', fullName: 'B.Sc. Physics', dept: 'BSC' },
-  { id: 'maths', name: 'B.Sc. Mathematics', fullName: 'B.Sc. Mathematics', dept: 'BSC' },
-  { id: 'geography', name: 'B.Sc. Geography', fullName: 'B.Sc. Geography', dept: 'BSC' },
-  { id: 'psychology', name: 'B.Sc. Psychology', fullName: 'B.Sc. Psychology', dept: 'BSC' },
-  // B.Com. branches
-  { id: 'bcom-finance', name: 'B.Com. Finance', fullName: 'B.Com. Finance', dept: 'BCOM' },
-  { id: 'bcom-professional', name: 'B.Com. Professional', fullName: 'B.Com. Professional', dept: 'BCOM' },
-  // Gear
-  { id: 'gear', name: 'Lab Gear & Calculators', fullName: 'Calculators & Kits', dept: 'GEAR' }
+  { id: 'all', name: 'All Courses', dept: 'ALL' },
+  { id: 'bsc', name: 'B.Sc.', fullName: 'B.Sc. (Science)', dept: 'BSC' },
+  { id: 'bcom', name: 'B.Com.', fullName: 'B.Com. (Commerce)', dept: 'BCOM' }
 ];
+
+// Prescribed common textbook catalog with MRP
+export const SYLLABUS_CATALOG = {
+  BSC: {
+    malayalam: {
+      'Sem 1': { title: 'മലയാള സാഹിത്യാസ്വാദനം', mrp: 100 },
+      'Sem 2': { title: 'വിനിമയ മലയാളവും ശാസ്ത്രരചനയും', mrp: 120 },
+      'Sem 3': { title: 'കേരളസമൂഹവും ശാസ്ത്രജ്ഞാനപാരമ്പര്യവും', mrp: 130 }
+    },
+    english: {
+      'Sem 1': { title: 'english language skill for science', mrp: 75 },
+      'Sem 2': { title: 'advanced english language for science', mrp: 80 },
+      'Sem 3': { title: 'literary and cultural narratives for science', mrp: 80 }
+    }
+  }
+};
 
 export const SEMESTERS = [
   'All Sems',
   'Sem 1',
   'Sem 2',
-  'Sem 3',
-  'Sem 4',
-  'Sem 5',
-  'Sem 6',
-  'Sem 7',
-  'Sem 8'
+  'Sem 3'
 ];
 
 // Exact Fair-Pricing Rule (Inverted by Book Health)

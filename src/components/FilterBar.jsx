@@ -1,11 +1,9 @@
 import React from 'react';
-import { BRANCHES, SEMESTERS, BOOK_CONDITIONS } from '../data/initialData';
+import { SEMESTERS, BOOK_CONDITIONS } from '../data/initialData';
 import { Check } from 'lucide-react';
 import { sound } from '../utils/sound';
 
 export default function FilterBar({
-  selectedBranch,
-  setSelectedBranch,
   selectedSem,
   setSelectedSem,
   selectedDept,
@@ -13,37 +11,29 @@ export default function FilterBar({
   conditionFilter,
   setConditionFilter
 }) {
-  const visibleBranches = BRANCHES.filter((b) => {
-    if (b.id === 'all') return true;
-    if (selectedDept === 'ALL') return true;
-    return b.dept === selectedDept;
-  });
-
   return (
     <div className="py-2.5 space-y-3">
       
-      {/* 1. Academic Faculty Tabs */}
+      {/* 1. Academic Faculty / Department: All, BSC, BCOM */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-sm -mx-4 px-4 sm:mx-0 sm:px-0">
         <span className="font-extrabold uppercase tracking-wider text-slate-400 whitespace-nowrap pr-1 text-xs hidden sm:inline">
-          Faculty:
+          Course:
         </span>
         <button
           onClick={() => {
             sound.playClick();
             setSelectedDept('ALL');
-            setSelectedBranch('all');
           }}
           className={`btn-glass px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
             selectedDept === 'ALL' ? 'btn-glass-active' : ''
           }`}
         >
-          All Departments
+          All Courses
         </button>
         <button
           onClick={() => {
             sound.playClick();
             setSelectedDept('BSC');
-            setSelectedBranch('all');
           }}
           className={`btn-glass px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
             selectedDept === 'BSC' ? 'btn-glass-active' : ''
@@ -55,7 +45,6 @@ export default function FilterBar({
           onClick={() => {
             sound.playClick();
             setSelectedDept('BCOM');
-            setSelectedBranch('all');
           }}
           className={`btn-glass px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
             selectedDept === 'BCOM' ? 'btn-glass-active' : ''
@@ -65,31 +54,7 @@ export default function FilterBar({
         </button>
       </div>
 
-      {/* 2. Specific Discipline / Subject */}
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-sm -mx-4 px-4 sm:mx-0 sm:px-0">
-        <span className="font-extrabold uppercase tracking-wider text-slate-400 whitespace-nowrap pr-1 text-xs hidden sm:inline">
-          Subject:
-        </span>
-        {visibleBranches.map((b) => {
-          const isActive = selectedBranch === b.id;
-          return (
-            <button
-              key={b.id}
-              onClick={() => {
-                sound.playClick();
-                setSelectedBranch(b.id);
-              }}
-              className={`btn-glass px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
-                isActive ? 'btn-glass-active' : ''
-              }`}
-            >
-              {b.name}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* 3. Semester (Sem 1 to Sem 8) & Condition Filters */}
+      {/* 2. Semester & Condition Filters */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-sm -mx-4 px-4 sm:mx-0 sm:px-0">
         <span className="font-extrabold uppercase tracking-wider text-slate-400 whitespace-nowrap pr-1 text-xs hidden sm:inline">
           Semester:
@@ -112,9 +77,10 @@ export default function FilterBar({
           );
         })}
 
-        {/* Condition Filter */}
+        {/* Divider */}
         <div className="h-5 w-[1px] bg-slate-300 mx-1 flex-shrink-0" />
         
+        {/* Book Condition Badges */}
         {BOOK_CONDITIONS.map((cond) => {
           const isSelected = conditionFilter === cond.name;
           return (
